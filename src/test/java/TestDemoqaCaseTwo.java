@@ -1,7 +1,7 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class DemoqaCaseTwo extends TestInit{
+public class TestDemoqaCaseTwo extends TestInit{
 
     PracticeFormLocators locators;
 
