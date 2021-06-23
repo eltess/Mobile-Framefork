@@ -1,2 +1,2 @@
-package PACKAGE_NAME;public class DemoqaCaseThree {
+public class DemoqaCaseThree extends TestInit{
 }
