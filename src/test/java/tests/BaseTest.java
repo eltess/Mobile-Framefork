@@ -1,7 +1,10 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.appium.java_client.AppiumDriver;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -29,6 +32,12 @@ public class BaseTest {
         DeviceCapabilities capabilities = new DeviceCapabilities();
         AppiumDriver appiumDriver = capabilities.driver();
         WebDriverRunner.setWebDriver(appiumDriver);
+
+        Configuration.reportsFolder = "target/test-result/reports";
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(true)
+        );
         homePage.popup.closeButton.click();
     }
 

@@ -11,7 +11,6 @@ public interface InputAction {
     SelenideElement element();
 
     default void setText(String text) {
-        LOGGER.info("%s *%s*".formatted("Set text =", name()));
         element().setValue(text);
     }
 

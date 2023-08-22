@@ -3,6 +3,7 @@ package rozetka.util;
 import com.codeborne.selenide.Selenide;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 import rozetka.listener.UiConfiguration;
 
@@ -12,6 +13,7 @@ import static rozetka.enums.Platform.ANDROID;
 
 public class NativeAction {
 
+    @Step("Ввод текста посимвольно = {keys}")
     public static void sendKeysToKeyboard(String keys) {
         Actions actions = new Actions(getWebDriver());
         LOGGER.info("%s *%s*".formatted("Set text =", keys));

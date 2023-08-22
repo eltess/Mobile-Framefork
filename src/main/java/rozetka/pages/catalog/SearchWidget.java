@@ -2,6 +2,7 @@ package rozetka.pages.catalog;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import io.qameta.allure.Step;
 import rozetka.Input;
 import rozetka.util.NativeAction;
 
@@ -11,10 +12,10 @@ import static com.codeborne.selenide.Selenide.$$x;
 
 public class SearchWidget {
 
-    public final Input searchField;
+    public final Input searchFieldInput;
 
     public SearchWidget() {
-        searchField = new Input("ua.com.rozetka.shop:id/et_query", "Search Field Widget");
+        searchFieldInput = new Input("ua.com.rozetka.shop:id/et_query", "Search Field Widget");
     }
 
     public void setSearchField(String searchText) {
@@ -25,10 +26,12 @@ public class SearchWidget {
         return getVisibleSearchResultElements().texts();
     }
 
+    @Step("Проверка результатов на дисплаед = {isSearchResultDisplayed}")
     public boolean isSearchResultDisplayed() {
         return getVisibleSearchResultElements().first().isDisplayed();
     }
 
+    @Step("Выбор первого видимого результата = {selectFirstVisibleItemInSearchResult}")
     public void selectFirstVisibleItemInSearchResult() {
         getVisibleSearchResultElements().first().should(Condition.visible).click();
     }
