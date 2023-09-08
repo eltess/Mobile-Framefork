@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="regression" parallel="tests" thread-count="1">
+
+
+    <test name="">
+        <classes>
+            <class name="ui-rozetka-tests/src/test/java/tests/CheckSearchResultTest"/>
+        </classes>
+    </test>
+
+</suite>
