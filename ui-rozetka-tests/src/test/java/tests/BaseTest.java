@@ -10,18 +10,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 import rozetka.component.BottomBarNavigation;
-import rozetka.enums.Platform;
 import rozetka.pages.HomePage;
-import rozetka.util.DeviceCapabilities;
+import rozetka.util.DriverManager;
 import rozetka.util.NativeAction;
-import rozetka.util.UiConfiguration;
+
+import static rozetka.BasePage.LOGGER;
 
 public class BaseTest {
 
     protected final BottomBarNavigation bottomBarNavigation;
     protected final HomePage homePage;
     protected SoftAssert softAssert;
-    protected static Platform PLATFORM = UiConfiguration.PLATFORM;
 
     public BaseTest() {
         bottomBarNavigation = new BottomBarNavigation();
@@ -30,8 +29,7 @@ public class BaseTest {
 
     @BeforeClass
     public void before() {
-        DeviceCapabilities capabilities = new DeviceCapabilities();
-        AppiumDriver appiumDriver = capabilities.driver();
+        AppiumDriver appiumDriver = DriverManager.getDriver();
         WebDriverRunner.setWebDriver(appiumDriver);
 
         Configuration.reportsFolder = "target/test-result/reports";
@@ -40,6 +38,7 @@ public class BaseTest {
             .savePageSource(true));
         NativeAction.closeAlert();
         // homePage.popup.closeButton.click();
+        LOGGER.info("START TEST");
     }
 
     @BeforeMethod

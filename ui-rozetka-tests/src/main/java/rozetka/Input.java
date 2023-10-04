@@ -3,7 +3,8 @@ package rozetka;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
-import static rozetka.util.UiConfiguration.PLATFORM;
+import static rozetka.BasePage.PLATFORM;
+
 
 public class Input implements InputAction, ElementAction {
 

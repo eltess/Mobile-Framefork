@@ -1,9 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="regression" parallel="tests" thread-count="1">
-    <test name="Rozetka">
+    <test name="CheckSearchResultTest">
         <classes>
             <class name="tests.CheckSearchResultTest"/>
+        </classes>
+    </test>
+    <test name="MathTest">
+        <classes>
+            <class name="tests.home.MathTest"/>
         </classes>
     </test>
 </suite>
