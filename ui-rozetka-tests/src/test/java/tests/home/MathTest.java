@@ -24,7 +24,7 @@ public class MathTest  {
     }
 
     @Step("Summation in progress {2 + 2}")
-     private int summa() {
+        private int summa() {
         return 2 + 2;
     }
 }
