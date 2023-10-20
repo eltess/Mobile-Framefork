@@ -1,7 +1,5 @@
 package tests.home;
 
-import com.epam.reportportal.annotations.attribute.Attribute;
-import com.epam.reportportal.annotations.attribute.Attributes;
 import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,7 +14,6 @@ public class MathTest  {
     @Description("This test checks 2 + 2")
     @Link(name = "Link", url = "https://github.com/eltess/Mobile-Framefork/tree/master/src/test")
 
-    @Attributes(attributes = { @Attribute(key = "key", value = "value") })
     @Test()
     public void Sum() throws IOException {
         var sum = summa();
@@ -24,7 +21,7 @@ public class MathTest  {
     }
 
     @Step("Summation in progress {2 + 2}")
-        private int summa() {
+     private int summa() {
         return 2 + 2;
     }
 }
