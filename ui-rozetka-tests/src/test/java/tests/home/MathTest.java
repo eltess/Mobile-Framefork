@@ -6,9 +6,7 @@ import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
 
 public class MathTest  {
 
@@ -21,12 +19,6 @@ public class MathTest  {
     @Attributes(attributes = { @Attribute(key = "key", value = "value") })
     @Test()
     public void Sum() throws IOException {
-
-        FileInputStream fileLink = new FileInputStream("src/test/resources/reportportal.properties");
-        Properties prop = new Properties();
-        prop.load(fileLink);
-        System.out.println(prop.getProperty("rp.attributes"));
-
         var sum = summa();
         Assert.assertEquals(sum, 4, "Expected sum is different from actual");
     }
