@@ -20,7 +20,7 @@ public class CheckSearchResultTest extends BaseTest {
     @TmsLink("ROZ=3131")
     @Test
     public void checkSearchResult() {
-         bottomBarNavigation.catalogButton.click();
+        bottomBarNavigation.catalogButton.click();
         catalogPage.searchFieldInput.click();
         catalogPage.descriptionLabel.click();
         catalogPage.searchWidget.searchFieldInput.click();
