@@ -22,4 +22,3 @@ jobs:
           java-version: 17
       - name: SPOTLESS Static Code Analysis
         run: mvn spotless:check
-
