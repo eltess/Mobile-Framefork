@@ -23,11 +23,11 @@
 
     <properties>
         <aspectj.version>1.9.9.1</aspectj.version>
-        <log4j.version>1.2.16</log4j.version>
         <project.bild.sourceEncoding>UTF-8</project.bild.sourceEncoding>
         <mpd.version>3.21.0</mpd.version>
         <spotless.version>2.38.0</spotless.version>
         <main.basedir>${project.basedir}</main.basedir>
+        <log4j.version>2.14.1</log4j.version>
 
         <!--suppress UnresolvedMavenProperty -->
         <test.param>${env.TEST_PLATFORM_J}</test.param>
@@ -101,16 +101,6 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                    <properties>
-                        <property>
-                            <name>usedefaultlisteners</name>
-                            <value>false</value>
-                        </property>
-                        <property>
-                            <name>listener</name>
-                            <value>com.epam.reportportal.testng.ReportPortalTestNGListener</value>
-                        </property>
-                    </properties>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -177,16 +167,23 @@
             <artifactId>maven-pmd-plugin</artifactId>
             <version>${mpd.version}</version>
         </dependency>
+        <!-- TODO For log4j: -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.6.1</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -240,6 +237,22 @@
             <groupId>com.epam.reportportal</groupId>
             <artifactId>agent-java-testng</artifactId>
             <version>5.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>logger-java-selenide</artifactId>
+            <version>5.1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>logger-java-rest-assured</artifactId>
+            <version>5.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>logger-java-log4j</artifactId>
+            <version>5.1.8</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

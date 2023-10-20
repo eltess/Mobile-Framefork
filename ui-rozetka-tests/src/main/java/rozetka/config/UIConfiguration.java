@@ -25,6 +25,10 @@ public interface UIConfiguration extends Config {
     @DefaultValue("emulator-5554")
     String deviceName();
 
+    @Key("language")
+    @DefaultValue("english")
+    String language();
+
     @Key("appLink")
     String appLink();
 }

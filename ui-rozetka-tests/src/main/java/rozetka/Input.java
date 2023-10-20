@@ -13,7 +13,7 @@ public class Input implements InputAction, ElementAction {
 
     public Input(String id, String name) {
         this.element = $x("//*[@%s='%s']".formatted(PLATFORM.getIdAttribute(), id));
-        this.name = "%s %s".formatted(name, "Input");;
+        this.name = "%s %s".formatted(name, "Input");
     }
 
     @Override

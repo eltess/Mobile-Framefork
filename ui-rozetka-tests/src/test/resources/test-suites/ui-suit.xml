@@ -1,6 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="regression" parallel="tests" thread-count="1">
+
+    <listeners>
+        <listener class-name="rozetka.rp.ReportPortalTestNGListener"/>
+    </listeners>
+
     <test name="CheckSearchResultTest">
         <classes>
             <class name="tests.CheckSearchResultTest"/>

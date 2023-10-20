@@ -9,7 +9,6 @@ import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.qameta.allure.Step;
-import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.Point;
@@ -36,8 +35,6 @@ import static rozetka.BasePage.PLATFORM;
 import static rozetka.enums.Platform.ANDROID;
 import static rozetka.util.Direction.UP;
 
-
-@Log4j
 @SuppressWarnings("PMD")
 public class NativeAction {
 
@@ -45,12 +42,12 @@ public class NativeAction {
 
     @Deprecated(forRemoval = true)
     public static void backButtonClick() {
-        log.info("Navigating back with native back button...");
+        LOGGER.info("Navigating back with native back button...");
         Selenide.back();
     }
 
     public static void openApp(String bundleId, String appActivity) {
-        log.info("Opening application...");
+        LOGGER.info("Opening application...");
         if (PLATFORM.equals(Platform.ANDROID)) {
             ((AndroidDriver) getWebDriver()).startActivity(new Activity(bundleId, appActivity));
         } else {
@@ -64,7 +61,7 @@ public class NativeAction {
     }
 
     public static void tapBackButton() {
-        log.info("Navigating back with native back button...");
+        LOGGER.info("Navigating back with native back button...");
         Selenide.back();
     }
 
