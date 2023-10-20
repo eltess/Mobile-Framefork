@@ -25,7 +25,8 @@ jobs:
     - uses: pmd/pmd-github-action@v1
       id: pmd
       with:
-        version: '6.40.0'       
+        version: '6.40.0'
+        sourcePath: 'TestTaskForProvectus'
         rulesets: 'rules/maven-pmd-plugin-custom-rules.xml'
         error-rules: 'AvoidDirectAccessTriggerMap,AvoidDmlStatementsInLoops,AvoidHardcodingId'
         note-rules: 'ApexDoc'
