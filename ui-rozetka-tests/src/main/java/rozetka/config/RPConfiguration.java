@@ -12,6 +12,7 @@ import static org.aeonbits.owner.Config.LoadType.MERGE;
 })
 
 public interface RPConfiguration extends Config {
+
     @Key("rp.api.key")
     String apiKey();
 }

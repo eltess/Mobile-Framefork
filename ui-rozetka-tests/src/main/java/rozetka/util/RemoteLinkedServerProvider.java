@@ -12,7 +12,8 @@ public class RemoteLinkedServerProvider {
 
     private static final String REMOTE_SERVER_URL = "http://127.0.0.1:4723/wd/hub";
     private static final String SAUCE_LABS_URL = "https://ondemand.eu-central-1.saucelabs.com:443/wd/hub";
-    private static final String SERVER = UI_CONFIGURATION.executionPlatform().equals("saucelabs") ? SAUCE_LABS_URL : REMOTE_SERVER_URL;
+    private static final String SERVER =
+        UI_CONFIGURATION.executionPlatform().equals("saucelabs") ? SAUCE_LABS_URL : REMOTE_SERVER_URL;
 
     @Step("Connection to server")
     public static URL getUrl() {

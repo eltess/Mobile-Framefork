@@ -21,7 +21,7 @@ import java.util.function.Supplier;
 
 import static rozetka.BasePage.UI_CONFIGURATION;
 
-public  class ReportPortalTestNGListener extends BaseTestNGListener  {
+public class ReportPortalTestNGListener extends BaseTestNGListener {
 
     private static final RPConfiguration RP_CONFIGURATION = ConfigFactory.create(RPConfiguration.class);
 
@@ -33,7 +33,7 @@ public  class ReportPortalTestNGListener extends BaseTestNGListener  {
     public void onTestFailure(ITestResult testResult) {
         try {
             ReportPortal.emitLog("Screenshot: " + testResult.getThrowable().getMessage(), "error", new Date(),
-                    Screenshots.takeScreenShotAsFile());
+                Screenshots.takeScreenShotAsFile());
         } catch (Throwable e) {
             e.printStackTrace();
         } finally {
@@ -50,7 +50,8 @@ public  class ReportPortalTestNGListener extends BaseTestNGListener  {
         private static Supplier<Launch> getLaunchOverriddenProperties() {
             ReportPortal reportPortal = ReportPortal.builder().withParameters(listenerParameters()).build();
             StartLaunchRQ rq = buildStartLaunch(reportPortal.getParameters());
-            return new Supplier<Launch>() {
+            return new Supplier<Launch>(){
+
                 @Override
                 public Launch get() {
                     return reportPortal.newLaunch(rq);
