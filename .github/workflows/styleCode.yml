@@ -10,7 +10,6 @@ on:
 
 jobs:
   pmd-analyser-checkk:
-    name: PMD Static Code Analysis
     runs-on: ubuntu-latest
     steps:
       - name: Get FrameWork
