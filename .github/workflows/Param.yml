@@ -29,6 +29,6 @@ jobs:
     name: Check ENV
     runs-on: ubuntu-latest
     steps:
-      - name: Selected env -  ${{ github.event.inputs.env }} and  Language - ${{ github.event.inputs.language }}
+      - name: Selected / ENV -  ${{ github.event.inputs.env }} / LANGUAGE - ${{ github.event.inputs.language }}
         run: echo "Eto est ${{ github.event.inputs.env }}"
           
