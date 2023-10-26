@@ -20,3 +20,13 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java-version: 17
+      - name: Start PMD Static Code Analysis
+      - uses: pmd/pmd-github-action@v1
+        with:
+          version: '6.40.0'
+          #sourcePath: 'src/main/java'
+          rulesets: 'rules/maven-pmd-plugin-custom-rules.xml'
+  
+      - name: No PMD Errors?
+        if: steps.pmd.outputs.violations != 0
+        run: exit 1
