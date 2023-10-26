@@ -7,14 +7,19 @@ on:
     branches:
       - master
   workflow_dispatch:
-  
-defaults:
-  - name: suiteName
-    displayName: 'Test suite'
-    type: string
-    default: 'CRITICAL_PATH'
-    values:
-      - 'SANITY'
-      - 'CRITICAL_PATH'
-      - 'REGRESSION'
-   
+    inputs:
+      env:
+        description: Select ENV
+        required: true
+        default: 'prod'
+        type: choice
+        options:
+          - dev
+          - uat
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Name
+      - run: echo "Eto est ${{ github.event.inputs.env }}"
+          
