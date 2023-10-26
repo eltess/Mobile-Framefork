@@ -1,0 +1,30 @@
+name: Static Code Analysis
+
+parameters:
+  - name: suiteName
+    displayName: 'Test suite'
+    type: string
+    default: 'CRITICAL_PATH'
+    values:
+      - 'SANITY'
+      - 'CRITICAL_PATH'
+      - 'REGRESSION'
+  - name: brand
+    displayName: 'Brand'
+    type: string
+    default: 'HM'
+    values:
+      - 'FL'
+      - 'BBW'
+      - 'AEO'
+      - 'HM'
+      - 'AY'
+      - 'VS'
+  - name: environment
+    displayName: 'Environment'
+    type: string
+    default: 'DEV'
+    values:
+      - 'DEV'
+      - 'QA'
+      - 'UAT'
