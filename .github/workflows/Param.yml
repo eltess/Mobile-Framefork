@@ -1,4 +1,4 @@
-name: Static Code Analysis
+name: Set ENV
 on:
   pull_request:
     branches:
