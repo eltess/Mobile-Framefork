@@ -9,28 +9,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  pmd-analyser-check:
+  pmd-analyser-checkk:
     name: PMD Static Code Analysis
-    permissions:
-      security-events: write
-      actions: read
-      contents: read
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '11'
-    - uses: pmd/pmd-github-action@v1
-      id: pmd
-      with:
-        version: '6.40.0'       
-        sourcePath: 'src/main/java'
-        rulesets: 'rules/maven-pmd-plugin-custom-rules.xml'
-        error-rules: 'AvoidDirectAccessTriggerMap,AvoidDmlStatementsInLoops,AvoidHardcodingId'
-        note-rules: 'ApexDoc'
-    - name: No PMD Errors?
-      if: steps.pmd.outputs.violations != 0
-      run: exit 1      
+      - name: Get FrameWork
+      - uses: actions/checkout@v3
 
+      - name: SetUp Java-17
+      - uses: actions/setup-java@v3
+        with:
+          java-version: 17
+
+      - name: Start PMD Static Code Analysis
+      - uses: pmd/pmd-github-action@v1
+        with:
+          version: '6.40.0'
+          #sourcePath: 'src/main/java'
+          rulesets: 'rules/maven-pmd-plugin-custom-rules.xml'
+
+      - name: No PMD Errors?
+        if: steps.pmd.outputs.violations != 0
+        run: exit 1
