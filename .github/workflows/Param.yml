@@ -18,8 +18,9 @@ on:
           - uat
 jobs:
   tests:
+    name: Check ENV
     runs-on: ubuntu-latest
     steps:
       - name: Set Name
-      - run: echo "Eto est ${{ github.event.inputs.env }}"
+        run: echo "Eto est ${{ github.event.inputs.env }}"
           
