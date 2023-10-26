@@ -22,7 +22,7 @@ jobs:
       - uses: pmd/pmd-github-action@v1
         with:
           version: '6.40.0'
-          sourcePath: './'
+          sourcePath: 'TestTaskForProvectus'
           rulesets: 'rules/maven-pmd-plugin-custom-rules.xml'
 
       - name: No PMD Errors?
