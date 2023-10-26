@@ -11,11 +11,19 @@ on:
       env:
         description: Select ENV
         required: true
-        default: 'prod'
         type: choice
         options:
           - dev
           - uat
+          - prod
+      language:
+        description: Select Language
+        required: true
+        type: choice
+        options:
+          - ua
+          - en
+          - ar
 jobs:
   tests:
     name: Check ENV
