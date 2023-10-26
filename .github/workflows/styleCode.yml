@@ -11,6 +11,7 @@ on:
 jobs:
 
   spotless-analyser-check:
+    name: SPOTLESS Static Code Analysis
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
