@@ -63,6 +63,7 @@ public class ReportPortalTestNGListener extends BaseTestNGListener {
             ListenerParameters parameters = new ListenerParameters(PropertiesLoader.load());
             parameters.setApiKey(RP_CONFIGURATION.apiKey());
             parameters.setAttributes(Set.of(
+                new ItemAttributesRQ("platform", UI_CONFIGURATION.executionPlatform()),
                 new ItemAttributesRQ("platform", UI_CONFIGURATION.platformName()),
                 new ItemAttributesRQ("language", UI_CONFIGURATION.language())));
             return parameters;

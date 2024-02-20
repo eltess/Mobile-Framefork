@@ -1,7 +1,9 @@
 package rozetka.util;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import io.qameta.allure.Step;
 
@@ -12,20 +14,20 @@ public class DriverManager {
 
     @Step("Creating a Driver!")
     public static AppiumDriver getDriver() {
-        return UI_CONFIGURATION.platformName().equals("android") ? getAndroidLocalDriver() : getIosLocalDriver();
+        return UI_CONFIGURATION.platformName().equals("android") ? getAndroidDriver() : getIosDriver();
     }
 
     @Step("Creating Driver for Android!")
-    private static AppiumDriver getAndroidLocalDriver() {
+    private static AndroidDriver getAndroidDriver() {
         LOGGER.info("Creating a Driver for Android!");
         UiAutomator2Options options = new UiAutomator2Options().merge(Capabilities.get());
-        return new AppiumDriver(RemoteLinkedServerProvider.getUrl(), options);
+        return new AndroidDriver(RemoteLinkedServerProvider.getUrl(), options);
     }
 
     @Step("Creating Driver for IOS!")
-    private static AppiumDriver getIosLocalDriver() {
+    private static IOSDriver getIosDriver() {
         LOGGER.info("Creating a Driver for IOS!");
         XCUITestOptions options = new XCUITestOptions().merge(Capabilities.get());
-        return new AppiumDriver(RemoteLinkedServerProvider.getUrl(), options);
+        return new IOSDriver(RemoteLinkedServerProvider.getUrl(), options);
     }
 }

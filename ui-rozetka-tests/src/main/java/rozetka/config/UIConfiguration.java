@@ -8,7 +8,7 @@ import static org.aeonbits.owner.Config.LoadType.MERGE;
 @Config.Sources({
         "system:properties",
         "system:env",
-        "classpath:appium.properties",
+        "classpath:appium.properties"
 })
 
 public interface UIConfiguration extends Config {

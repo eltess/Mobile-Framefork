@@ -14,4 +14,6 @@ public class HomePage {
     public HomePage() {
         this.popup = new Popup();
     }
+
+    public final SelenideElement inputElement = $x("//*[@resource-id= 'ua.com.rozetka.shop:id/item_main_v_search']");
 }

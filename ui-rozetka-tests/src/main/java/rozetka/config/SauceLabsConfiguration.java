@@ -8,7 +8,7 @@ import static org.aeonbits.owner.Config.LoadType.MERGE;
 @Config.Sources({
         "system:properties",
         "system:env",
-        "classpath:saucelabs.properties",
+        "classpath:saucelabs.properties"
 })
 
 public interface SauceLabsConfiguration extends Config {

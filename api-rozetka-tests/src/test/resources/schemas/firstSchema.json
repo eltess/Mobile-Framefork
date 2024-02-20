@@ -10,7 +10,7 @@
           "type": "string"
         },
         "foo2": {
-          "type": "string"
+          "type": "integer"
         }
       },
       "required": [

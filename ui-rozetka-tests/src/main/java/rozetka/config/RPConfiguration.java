@@ -8,7 +8,7 @@ import static org.aeonbits.owner.Config.LoadType.MERGE;
 @Config.Sources({
         "system:properties",
         "system:env",
-        "classpath:reportportal.properties",
+        "classpath:reportportal.properties"
 })
 
 public interface RPConfiguration extends Config {

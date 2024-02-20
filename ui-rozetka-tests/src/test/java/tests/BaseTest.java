@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.appium.java_client.AppiumDriver;
@@ -32,7 +31,7 @@ public class BaseTest {
         AppiumDriver appiumDriver = DriverManager.getDriver();
         WebDriverRunner.setWebDriver(appiumDriver);
 
-        Configuration.reportsFolder = "target/test-result/reports";
+        // Configuration.reportsFolder = "target/test-result/reports";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
             .screenshots(true)
             .savePageSource(true));

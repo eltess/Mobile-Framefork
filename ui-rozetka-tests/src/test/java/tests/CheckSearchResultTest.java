@@ -3,12 +3,16 @@ package tests;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import rozetka.pages.CatalogPage;
+import rozetka.pages.HomePage;
 import rozetka.pages.catalog.SearchResultPage;
+import rozetka.util.Direction;
+import rozetka.util.NativeAction;
 
 public class CheckSearchResultTest extends BaseTest {
 
     private final CatalogPage catalogPage = new CatalogPage();
     private final SearchResultPage searchResultPage = new SearchResultPage();
+    private final HomePage homePage = new HomePage();
     private static final String TEFAL = "tefal";
 
     @Owner("Serhiy Lebediev")
@@ -20,6 +24,11 @@ public class CheckSearchResultTest extends BaseTest {
     @TmsLink("ROZ=3131")
     @Test
     public void checkSearchResult() {
+
+        NativeAction.swipe1(Direction.UP);
+        NativeAction.swipe1(Direction.DOWN);
+        NativeAction.swipe1(Direction.LEFT);
+        NativeAction.swipe1(Direction.RIGHT);
         bottomBarNavigation.catalogButton.click();
         catalogPage.searchFieldInput.click();
         catalogPage.descriptionLabel.click();

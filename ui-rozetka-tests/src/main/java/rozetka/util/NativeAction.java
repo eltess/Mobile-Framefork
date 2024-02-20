@@ -10,7 +10,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -20,8 +19,10 @@ import org.openqa.selenium.interactions.Sequence;
 import rozetka.enums.RelativePosition;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -46,18 +47,25 @@ public class NativeAction {
         Selenide.back();
     }
 
-    public static void openApp(String bundleId, String appActivity) {
-        LOGGER.info("Opening application...");
-        if (PLATFORM.equals(Platform.ANDROID)) {
-            ((AndroidDriver) getWebDriver()).startActivity(new Activity(bundleId, appActivity));
-        } else {
-            ((AppiumDriver) getWebDriver()).executeScript("mobile: activateApp",
-                Map.of("bundleId", bundleId));
-        }
+    public static void openApp(String appPackage, String appActivity) {
+        LOGGER.info("Opening application - %s".formatted(appActivity));
+        ((AndroidDriver) getWebDriver()).startActivity(new Activity(appPackage, appActivity));
     }
 
-    public static String getAndroidCurrentActivity() {
+    public static String getAndroidCurrentAppActivity() {
         return ((AndroidDriver) getWebDriver()).currentActivity();
+    }
+
+    public static String getAndroidCurrentAppPackage() {
+        return ((AndroidDriver) getWebDriver()).getCapabilities().getCapability("appium:appPackage").toString();
+    }
+
+    public static Set<String> getAndroidCurrentContexts() {
+        return ((AndroidDriver) WebDriverRunner.getWebDriver()).getContextHandles();
+    }
+
+    public static void selectAndroidContext(String nameContext) {
+        ((AndroidDriver) getWebDriver()).context(nameContext);
     }
 
     public static void tapBackButton() {
@@ -113,12 +121,44 @@ public class NativeAction {
         var driver = (AppiumDriver) getWebDriver();
         swipe(from, switch (direction) {
             case UP -> new Point(from.getX(), (int) ((1 - swipeCoef) * from.getY()));
-            case DOWN -> new Point(from.getX(),
-                driver.manage().window().getSize().getHeight() - (int) ((1 - swipeCoef) * from.getY()));
+            case DOWN -> new Point(from.getX(), driver.manage().window().getSize().getHeight() - (int) ((1 - swipeCoef) * from.getY()));
             case LEFT -> new Point((int) ((1 - swipeCoef) * from.getY()), from.getX());
-            case RIGHT -> new Point(
-                driver.manage().window().getSize().getWidth() - (int) ((1 - swipeCoef) * from.getX()), from.getY());
+            case RIGHT -> new Point(driver.manage().window().getSize().getWidth() - (int) ((1 - swipeCoef) * from.getX()), from.getY());
         });
+    }
+
+    public static void swipe1(Direction direction) {
+        var driver = (AppiumDriver) getWebDriver();
+
+        var screenCenter = new Point(driver.manage().window().getSize().getWidth() / 2,
+                driver.manage().window().getSize().getHeight() / 2);
+
+        swipe1(screenCenter, switch (direction) {
+            case UP -> new Point(screenCenter.getX(), screenCenter.getY());
+            case DOWN -> new Point(screenCenter.getX(), driver.manage().window().getSize().getHeight());
+
+            case LEFT -> new Point(screenCenter.getY(), screenCenter.getX()); //
+            case RIGHT -> new Point(driver.manage().window().getSize().getWidth(), screenCenter.getY());
+
+        });
+    }
+
+
+    public static void swipe1(Point from, Point to) {
+
+        var driver = (AppiumDriver) getWebDriver();
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence dragNDrop = new Sequence(finger, 1);
+        dragNDrop.addAction(finger.createPointerMove(Duration.ofMillis(0),
+
+        PointerInput.Origin.viewport(), from.x, from.y));
+        dragNDrop.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        dragNDrop.addAction(finger.createPointerMove(Duration.ofMillis(700),
+
+        PointerInput.Origin.viewport(),to.x, to.y));
+        dragNDrop.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(dragNDrop));
     }
 
     public static void swipe(Point from, Point to) {
