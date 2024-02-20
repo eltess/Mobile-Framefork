@@ -1,0 +1,28 @@
+name: Set ENV
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: Select ENV
+        required: true
+        type: choice
+        options:
+          - dev
+          - uat
+          - prod
+      language:
+        description: Select Language
+        required: true
+        type: choice
+        options:
+          - ua
+          - en
+          - ar
+jobs:
+  tests:
+    name: Check ENV
+    runs-on: ubuntu-latest
+    steps:
+      - name: Selected / ENV -  ${{ github.event.inputs.env }} / LANGUAGE - ${{ github.event.inputs.language }}
+        run: echo "Eto est ${{ github.event.inputs.env }}"
+          
