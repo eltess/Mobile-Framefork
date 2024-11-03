@@ -11,7 +11,6 @@ import org.testng.asserts.SoftAssert;
 import rozetka.component.BottomBarNavigation;
 import rozetka.pages.HomePage;
 import rozetka.util.DriverManager;
-import rozetka.util.NativeAction;
 
 import static rozetka.BasePage.LOGGER;
 
@@ -35,7 +34,7 @@ public class BaseTest {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
             .screenshots(true)
             .savePageSource(true));
-        NativeAction.closeAlert();
+        //NativeAction.closeAlert();
         // homePage.popup.closeButton.click();
         LOGGER.info("START TEST");
     }

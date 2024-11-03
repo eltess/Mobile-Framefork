@@ -37,10 +37,10 @@ public class FirstApiTest {
             .param("foo1", "bar1")
             .param("foo2", "bar2")
 
-            .when()
+        .when()
             .get("/get")
 
-            .then()
+        .then()
             .statusCode(200)
             .contentType(ContentType.JSON)
             .log()

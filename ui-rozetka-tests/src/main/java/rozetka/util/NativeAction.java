@@ -121,9 +121,11 @@ public class NativeAction {
         var driver = (AppiumDriver) getWebDriver();
         swipe(from, switch (direction) {
             case UP -> new Point(from.getX(), (int) ((1 - swipeCoef) * from.getY()));
-            case DOWN -> new Point(from.getX(), driver.manage().window().getSize().getHeight() - (int) ((1 - swipeCoef) * from.getY()));
+            case DOWN -> new Point(from.getX(),
+                driver.manage().window().getSize().getHeight() - (int) ((1 - swipeCoef) * from.getY()));
             case LEFT -> new Point((int) ((1 - swipeCoef) * from.getY()), from.getX());
-            case RIGHT -> new Point(driver.manage().window().getSize().getWidth() - (int) ((1 - swipeCoef) * from.getX()), from.getY());
+            case RIGHT -> new Point(
+                driver.manage().window().getSize().getWidth() - (int) ((1 - swipeCoef) * from.getX()), from.getY());
         });
     }
 
@@ -131,7 +133,7 @@ public class NativeAction {
         var driver = (AppiumDriver) getWebDriver();
 
         var screenCenter = new Point(driver.manage().window().getSize().getWidth() / 2,
-                driver.manage().window().getSize().getHeight() / 2);
+            driver.manage().window().getSize().getHeight() / 2);
 
         swipe1(screenCenter, switch (direction) {
             case UP -> new Point(screenCenter.getX(), screenCenter.getY());
@@ -143,7 +145,6 @@ public class NativeAction {
         });
     }
 
-
     public static void swipe1(Point from, Point to) {
 
         var driver = (AppiumDriver) getWebDriver();
@@ -152,11 +153,11 @@ public class NativeAction {
         Sequence dragNDrop = new Sequence(finger, 1);
         dragNDrop.addAction(finger.createPointerMove(Duration.ofMillis(0),
 
-        PointerInput.Origin.viewport(), from.x, from.y));
+            PointerInput.Origin.viewport(), from.x, from.y));
         dragNDrop.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         dragNDrop.addAction(finger.createPointerMove(Duration.ofMillis(700),
 
-        PointerInput.Origin.viewport(),to.x, to.y));
+            PointerInput.Origin.viewport(), to.x, to.y));
         dragNDrop.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Arrays.asList(dragNDrop));
     }

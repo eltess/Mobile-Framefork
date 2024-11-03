@@ -8,7 +8,7 @@ import static rozetka.BasePage.PLATFORM;
 public class Button implements ElementAction {
 
     private String name;
-    public SelenideElement element;
+    private SelenideElement element;
 
     public Button(String id, String name) {
         this.element = $x("//*[@%s='%s']".formatted(PLATFORM.getIdAttribute(), id));
