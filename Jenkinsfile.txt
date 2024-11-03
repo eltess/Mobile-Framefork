@@ -14,13 +14,12 @@ pipeline {
                     ])
                 }
             }
+        }
 
-             stage('Test') {
-                steps {
-                    echo 'Testing.11111111111111111111111111111.'
-                }
-             }
-
+        stage('Test') {
+            steps {
+                echo 'Testing.11111111111111111111111111111.'
+            }
         }
     }
 }
