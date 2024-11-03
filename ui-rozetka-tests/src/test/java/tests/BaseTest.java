@@ -34,7 +34,7 @@ public class BaseTest {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
             .screenshots(true)
             .savePageSource(true));
-        //NativeAction.closeAlert();
+        // NativeAction.closeAlert();
         // homePage.popup.closeButton.click();
         LOGGER.info("START TEST");
     }
