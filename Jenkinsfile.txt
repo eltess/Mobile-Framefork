@@ -18,7 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Testing.11111111111111111111111111111.'
+                echo 'Testing.11111111111111111111111111111. ${RUN}'
             }
         }
     }
