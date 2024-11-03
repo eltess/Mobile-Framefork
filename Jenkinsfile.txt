@@ -18,7 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                powershell  'mvn clean'
+                powershell  'Ping www.ukr.net'
             }
         }
     }
