@@ -18,7 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat '-e mvn clean'
+                powershell  'mvn clean'
             }
         }
     }
