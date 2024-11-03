@@ -18,7 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat 'mvn clean test -pl=api-rozetka-tests  -Dsurefire.suiteXmlFiles=src/test/resources/test-suites/api-suit.xml'
+                bat 'cmd /c mvn clean test -pl=api-rozetka-tests  -Dsurefire.suiteXmlFiles=src/test/resources/test-suites/api-suit.xml'
             }
         }
     }
