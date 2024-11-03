@@ -18,7 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                powershell  'Ping www.ukr.net'
+                powershell  'mvn -version'
             }
         }
     }
