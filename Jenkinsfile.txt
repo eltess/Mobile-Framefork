@@ -17,6 +17,12 @@ pipeline {
             }
         }
 
+        stage('AAAA') {
+                    steps {
+                        echo '%{RUN}'
+                    }
+                }
+
         stage('Test') {
             steps {
                 powershell 'mvn clean test -pl=ui-rozetka-tests  -Dsurefire.suiteXmlFiles=src/test/resources/test-suites/$ui-suit.xml'
