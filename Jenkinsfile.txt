@@ -19,7 +19,7 @@ pipeline {
 
         stage('AAAA') {
                     steps {
-                        echo '%{RUN}'
+                        echo '${RUN}'
                     }
                 }
 
