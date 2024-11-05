@@ -31,4 +31,7 @@ public interface UIConfiguration extends Config {
 
     @Key("appLink")
     String appLink();
+
+    @Key("RUN")
+    String getRun();
 }

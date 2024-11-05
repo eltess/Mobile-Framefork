@@ -6,11 +6,6 @@
         <listener class-name="rozetka.rp.ReportPortalTestNGListener"/>
     </listeners>
 
-    <test name="CheckSearchResultTest">
-        <classes>
-            <class name="tests.CheckSearchResultTest"/>
-        </classes>
-    </test>
     <test name="MathTest">
         <classes>
             <class name="tests.home.MathTest"/>

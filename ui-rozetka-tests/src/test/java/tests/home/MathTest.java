@@ -10,6 +10,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import static rozetka.config.Config.UI_CONFIGURATION;
+
 public class MathTest {
 
     @Owner("Serhiy")
@@ -26,6 +28,7 @@ public class MathTest {
         Properties prop = new Properties();
         prop.load(fileLink);
         System.out.println(prop.getProperty("rp.attributes"));
+        System.out.println(UI_CONFIGURATION.getRun());
 
         var sum = summa();
         Assert.assertEquals(sum, 4, "Expected sum is different from actual");
