@@ -149,12 +149,6 @@
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>6.17.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
-            <version>6.17.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -223,7 +217,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.28</version>
+            <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
