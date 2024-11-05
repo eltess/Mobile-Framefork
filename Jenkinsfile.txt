@@ -18,7 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat  'mvn -v'
+                bat  'ping www.ukr.net'
             }
         }
     }
