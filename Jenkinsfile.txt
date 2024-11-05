@@ -19,7 +19,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                powershell 'mvn -v'
+                powershell 'mvn clean test -pl=${run}-rozetka-tests  -Dsurefire.suiteXmlFiles=src/test/resources/test-suites/${run}-suit.xml'
             }
         }
     }
