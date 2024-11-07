@@ -2,12 +2,6 @@ pipeline {
     agent any
     tools { maven 'maven 3.9.4'}
 
-    environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
-        AAA    = '${DB_ENGINE}'
-    }
-
     stages {
         stage('Setup parameters') {
             steps {
@@ -23,6 +17,12 @@ pipeline {
                 }
             }
         }
+
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+        AAA    = '${DB_ENGINE}'
+    }
 
         stage('AAAA') {
                     steps {
