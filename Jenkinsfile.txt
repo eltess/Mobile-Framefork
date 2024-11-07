@@ -5,7 +5,7 @@ pipeline {
     environment {
         DISABLE_AUTH = 'true'
         DB_ENGINE    = 'sqlite'
-        AAA    = '${RUN}'
+        AAA    = 'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG'
     }
 
     stages {

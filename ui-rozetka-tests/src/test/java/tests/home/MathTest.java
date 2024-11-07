@@ -14,6 +14,8 @@ public class MathTest {
         System.out.println(UI_CONFIGURATION.getEngine());
         System.out.println(UI_CONFIGURATION.getAuth());
 
+        System.out.println("------------------------------------------");
+
         System.out.println(System.getenv("DB_ENGINE"));
         System.out.println(System.getenv("DISABLE_AUTH"));
         System.out.println(System.getenv("RUN" + "?????????????????????????????????/"));
