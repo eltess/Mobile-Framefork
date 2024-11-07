@@ -34,4 +34,8 @@ public interface UIConfiguration extends Config {
 
     @Key("RUN")
     String getRun();
+    @Key("DB_ENGINE")
+    String getEngine();
+    @Key("DISABLE_AUTH")
+    String getAuth();
 }

@@ -28,7 +28,13 @@ public class MathTest {
         Properties prop = new Properties();
         prop.load(fileLink);
         System.out.println(prop.getProperty("rp.attributes"));
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         System.out.println(UI_CONFIGURATION.getRun());
+        System.out.println(UI_CONFIGURATION.getEngine());
+        System.out.println(UI_CONFIGURATION.getAuth());
+        System.out.println(System.getenv("DB_ENGINE"));
+        System.out.println(System.getenv("DISABLE_AUTH"));
+        System.out.println(System.getenv("RUN"));
 
         var sum = summa();
         Assert.assertEquals(sum, 4, "Expected sum is different from actual");

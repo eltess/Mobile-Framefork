@@ -1,6 +1,12 @@
 pipeline {
     agent any
     tools { maven 'maven 3.9.4'}
+
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+    }
+
     stages {
         stage('Setup parameters') {
             steps {
@@ -20,12 +26,14 @@ pipeline {
         stage('AAAA') {
                     steps {
                         echo '${RUN}'
+                        echo "Database engine is ${DB_ENGINE}"
+                        echo "DISABLE_AUTH is ${DISABLE_AUTH}"
                     }
                 }
 
         stage('Test') {
             steps {
-                powershell 'mvn clean install  test -pl=ui-rozetka-tests  -Dsurefire.suiteXmlFiles=ui-rozetka-tests/src/test/resources/test-suites/$ui-suit.xml'
+                powershell 'mvn clean test'
             }
         }
     }

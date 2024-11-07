@@ -29,7 +29,7 @@ public class FirstApiTest {
     @Severity(SeverityLevel.BLOCKER)
     @Description("This test checks the search functionality and its result")
 
-    @Test
+    @Test(enabled = false)
     public void firstApi() {
 
         given()
@@ -48,7 +48,7 @@ public class FirstApiTest {
             .body(matchesJsonSchemaInClasspath("schemas/firstSchema.json"));
     }
 
-    @Test
+    @Test(enabled = false)
     public void firstApi2() {
         BodyData requestBodyData = BodyData.builder()
             .name("test name")

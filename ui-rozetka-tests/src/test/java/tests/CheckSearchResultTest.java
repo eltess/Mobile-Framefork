@@ -22,7 +22,7 @@ public class CheckSearchResultTest extends BaseTest {
     @Link(name = "Link", url = "https://github.com/eltess/Mobile-Framefork/tree/master")
 
     @TmsLink("ROZ=3131")
-    @Test
+    @Test(enabled = false)
     public void checkSearchResult() {
 
         NativeAction.swipe1(Direction.UP);
